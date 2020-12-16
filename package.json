@@ -1,6 +1,6 @@
 {
   "name": "re-template-tag",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "scripts": {
     "build": "babel esm --out-dir cjs",
     "prepublishOnly": "npm run build",
@@ -10,8 +10,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rauschma/re-template-tag.git"
+    "url": "https://github.com/disco0/re-template-tag.git"
   },
+  "types": "./@types/index.d.ts",
   "//": [
     "babel-cli: needed for building",
     "babel-register: needed for testing via AVA"
