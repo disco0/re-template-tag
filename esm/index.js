@@ -36,5 +36,8 @@ export const transformRaw = (str) => str.replace(/\\`/g, '`');
 
 /**
  * All special characters are escaped, because you may want to quote several characters inside parentheses or square brackets.
+ * 
+ * @param  {string} text
+ * @return {string}
  */
 export const quoteText = (text) => text.replace(/[\\^$.*+?()[\]{}|=!<>:-]/g, '\\$&');
