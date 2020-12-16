@@ -2,7 +2,9 @@
   "name": "re-template-tag",
   "version": "2.0.2",
   "scripts": {
-    "build": "babel esm --out-dir cjs",
+    "build": "npm run build:types && npm run build:cjs",
+    "build:cjs": "tsc --checkJs --allowJs --target ES2016 --module commonjs --esModuleInterop --moduleResolution Node --alwaysStrict --strict --listEmittedFiles --pretty --preserveWatchOutput --outDir cjs esm/index.js",
+    "build:types": "tsc --emitDeclarationOnly --allowJs  --declaration --declarationDir ./@types ./esm/index.js",
     "prepublishOnly": "npm run build",
     "test": "ava"
   },
@@ -18,10 +20,11 @@
     "babel-register: needed for testing via AVA"
   ],
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "ava": "^0.21.0",
-    "babel-preset-env": "^1.5.1",
-    "babel-register": "^6.24.1"
+    "@ava/babel": "^1.0.1",
+    "@babel/register": "^7.12.10",
+    "ava": "^3.14.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
   },
   "module": "./esm/index.js",
   "main": "./cjs/index.js",
@@ -40,7 +43,6 @@
   "ava": {
     "require": [
       "babel-register"
-    ],
-    "babel": "inherit"
+    ]
   }
 }
